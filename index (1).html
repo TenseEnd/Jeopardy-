@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="kk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jeopardy – Педагогикалық өзара әрекеттестік</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1a2238;--mu:#5b6478;--ac:#2f4bd8;--tile:#2f4bd8;--tt:#ffd84d;--bd:#d9deea;--ok:#1e9e5a;--no:#d64545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10131f;--card:#1a1f33;--tx:#eef1fb;--mu:#9aa3bd;--ac:#6f86ff;--tile:#27368f;--bd:#2b3250}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:12px}
+h1{font-size:1.2rem;text-align:center;margin:8px 0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:10px 0}
+textarea{width:100%;height:150px;border:1px solid var(--bd);border-radius:8px;padding:8px;background:var(--bg);color:var(--tx);font:inherit}
+button{font:inherit;border:0;border-radius:8px;padding:10px 14px;background:var(--ac);color:#fff;cursor:pointer}
+button.g{background:var(--bd);color:var(--tx)}
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.t{border:1px solid var(--bd);border-radius:10px;padding:10px;background:var(--card)}
+.t b{display:block;margin-bottom:4px}.t span{color:var(--mu);font-size:.85rem}
+.sc{font-size:1.4rem;font-weight:700}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:10px 0}
+.cat{background:var(--ac);color:#fff;border-radius:8px;padding:8px 3px;font-size:.68rem;font-weight:700;text-align:center;display:flex;align-items:center;justify-content:center;min-height:56px}
+.tile{background:var(--tile);color:var(--tt);font-weight:800;font-size:1.05rem;padding:16px 0;text-align:center}
+.tile.u{opacity:.2;pointer-events:none}
+.m{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:12px;z-index:9}
+.m.o{display:flex}.mb{background:var(--card);border-radius:14px;padding:18px;max-width:560px;width:100%;max-height:90%;overflow:auto}
+.q{font-size:1.1rem;margin:8px 0 14px}.a{display:none;background:var(--bg);border-left:4px solid var(--ok);padding:10px;border-radius:6px;margin-bottom:12px}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pts{color:var(--mu);font-size:.85rem}.q,.a{white-space:pre-line}
+@media(min-width:700px){.cat{font-size:.9rem}.tile{font-size:1.5rem;padding:26px 0}}
+:root:not([data-theme="light"]),:root{--bg:#150f33;--card:#241a4d;--tx:#fff;--mu:#c3bbf0;--bd:#4a3b8f;--ac:#ff4fa3;--tt:#ffe066}
+body{background:radial-gradient(circle at 12% 8%,#5b2bd9 0,transparent 45%),radial-gradient(circle at 90% 95%,#ff4fa3 0,transparent 40%),#150f33;background-attachment:fixed;min-height:100vh}
+h1{font-size:1.35rem;line-height:1.3;margin:10px 0 14px;text-shadow:0 2px 12px #7c4dff}
+h1 small{display:block;letter-spacing:.35em;color:#ffd84d;font-size:.75rem;margin-bottom:4px}
+h1 em{display:block;font-size:.8rem;font-weight:400;color:var(--mu);font-style:normal;margin-top:2px}
+button{background:linear-gradient(135deg,#ff4fa3,#7c4dff);font-weight:600;transition:.15s}
+button:active{transform:scale(.96)}button.g{background:#ffffff1f}
+.cat{background:linear-gradient(135deg,#7c4dff,#ff4fa3);box-shadow:0 4px 12px #0005;line-height:1.25}
+.tile{background:linear-gradient(160deg,#3b5bff,#6f2bd9);color:#ffe066;border:2px solid #ffffff2a;border-radius:10px;text-shadow:0 2px 6px #0007;box-shadow:0 4px 0 #1a1060}
+.tile:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px #ffd84d66}
+.tile.u{opacity:.12;box-shadow:none}
+.t{border-top:4px solid #ff4fa3;text-align:center;background:#ffffff12;backdrop-filter:blur(6px)}
+.t:nth-child(2){border-color:#2fd4ff}.t:nth-child(3){border-color:#ffd84d}
+.t b{font-size:1rem}.sc{font-size:2rem;color:#ffd84d;text-shadow:0 0 12px #ffd84d88}
+.mb{border:2px solid #ffd84d;box-shadow:0 0 40px #7c4dffaa;animation:pop .25s ease-out}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.q{font-size:1.2rem;font-weight:600}
+.ru{color:var(--mu);margin-top:10px;padding-top:10px;border-top:1px dashed var(--bd);font-size:.95em;font-weight:400}
+.a{animation:pop .25s ease-out;background:#ffffff14}
+.cf{position:fixed;top:-30px;z-index:20;font-size:1.6rem;animation:fall 1.6s ease-in forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+</style></head><body><div class="w">
+<h1><small>🎓 JEOPARDY 🎯</small>Педагогикалық өзара әрекеттестікті модельдеу<em>Моделирование педагогического взаимодействия</em></h1>
+
+
+<div id="game">
+<div class="teams" id="sb"></div>
+<div class="board" id="bd"></div>
+<div class="row"><button class="g" onclick="location.reload()">Қайта бастау</button></div>
+</div>
+</div>
+
+<div class="m" id="m"><div class="mb">
+<div class="pts" id="mh"></div>
+<div class="q" id="mq"></div>
+<div class="a" id="ma"></div>
+<button id="sh" onclick="show()">Жауапты көрсету</button>
+<div id="aw" style="display:none"><div class="pts" style="margin-top:10px">Кім дұрыс жауап берді?</div><div class="row" id="ab"></div>
+<div class="row"><button class="g" onclick="closeQ(-1)">Ешкім / өткізу</button></div></div>
+</div></div>
+
+<script>
+const T=["АТ-24-1","АТ-25-1у","АТ-25-3у"];
+const D=[
+["Негізгі ұғымдар",[
+["Педагогикалық өзара әрекеттестік дегеніміз не?","Мұғалім мен оқушының мақсатты байланысы; нәтижесінде екі тарап та өзгереді: оқушыда жаңа білім, іскерлік пен көзқарас пайда болады, мұғалім сыныпты жақсы түсініп, жұмысын түзетеді."],
+["«Өзара әрекеттестік» сөзіндегі «өзара» негізгі сөзі нені білдіреді?","Ықпал екі жаққа да бағытталған: мұғалім оқушыға да, оқушы мұғалімге де әсер етеді."],
+["Мұғалім тек айтып, оқушылар тек тыңдаса, бұл не болады және неге бұл өзара әрекеттестік емес?","Бұл ақпарат беру, өйткені ықпал бір жақты, кері байланыс жоқ."],
+["Оқушыны «объект» ретінде және «субъект» ретінде қарастыру тәсілдерінің айырмашылығы неде?","Объект: мұғалім не және қалай істеуді шешеді, оқушы орындайды. Субъект: оқушы пікір айтады, жұмыс тәсілін таңдайды, нәтижеге жауап береді."],
+["Қай тәсіл тұлғаға бағытталған оқытудың негізінде жатыр және неліктен?","Екінші, субъектілік тәсіл: оқушы оқу процесінің толыққанды қатысушысы болады, бұған қазіргі мектеп ұмтылады."]]],
+["Өзара әрекеттестік стильдері",[
+["Педагогикалық өзара әрекеттестіктің қандай үш классикалық стилі бар?","Авторитарлық, либералдық (рұқсат етуші) және демократиялық."],
+["Авторитарлық стильде мұғалім қалай әрекет етеді және қандай нәтиже береді?","Шешімді жеке өзі қабылдайды, қатаң бақылайды; тәртіп бар, бірақ оқушы бастамасы басылады, пәнге қызығушылық төмендейді."],
+["Либералдық стильде жұмыс неліктен нашар нәтиже береді?","Мұғалім сыныпты дерлік бағыттамайды: оқушыларға еркін, бірақ жұмыс ретсіз, нәтиже әлсіз болады."],
+["Қай стиль ең жақсы уәждеме мен дербестік береді және мұғалім онда не істейді?","Демократиялық: мұғалім оқушылармен ынтымақтасады, мақсатты түсіндіреді, таңдау ұсынады, бастаманы қолдайды."],
+["Неліктен тәжірибелі мұғалім стильді өзгертіп отырады? Мысал келтіріңіз.","«Таза» стильдер сирек кездеседі, ситуацияға қарай икемделеді: бақылау жұмысында нақтылық қажет, жобалық жұмыста еркіндік қажет."]]],
+["Іс-әрекетті басқару",[
+["Оқушылар іс-әрекетін басқару қандай үш өзара байланысты бөліктен тұрады?","Мақсат қойып, жұмысты ұйымдастыру; уәждемені қолдау; нәтижені бақылау және бағалау."],
+["Тақырыппен алғашқы танысуға қандай әдістер сәйкес келеді?","Түсіндіру және көрсету (демонстрация)."],
+["Ойлауды дамыту үшін қандай әдістер жақсы жұмыс істейді?","Проблемалық сұрақтар және зерттеу тапсырмалары."],
+["Ынтымақтастыққа үйрету үшін және қызығушылықты қолдау үшін қандай әдістер қолданылады?","Ынтымақтастыққа: жұптық және топтық жұмыс, дискуссия, жобалар. Қызығушылыққа: ойын әдістері."],
+["Басқару неге «әмір беру» емес? Нәтижені тексерудің қандай құралдары бар?","Бұл оқушылар өздері жұмыс істегісі келетін және істей алатын жағдай ұйымдастыру. Тексеру: ауызша сұрақтар, тесттер, өзін-өзі бағалау, бір-бірін бағалау."]]],
+["Модельдеу",[
+["Педагогикада модельдеу деген не?","Оқытудың қалай өтетінін алдын ала ойластырып жобалау."],
+["Мұғалім сабақтың «макетін» жасағанда нені анықтайды?","Мақсатты, мұғалім мен оқушылардың рөлдерін, әдістерді, әрекеттер ретін және күтілетін нәтижені."],
+["Модельдеу не үшін қажет? Кемінде екі себеп атаңыз.","Сабақ тірі процесс, жоспарсыз ол оңай ыдырайды; модель қиындықты болжауға, нақты сыныпқа әдіс таңдауға, әдетте үндемейтіндерді тартуға көмектеседі."],
+["Модельдеу қадамдарын ретімен атаңыз.","1) сыныпты талдау; 2) сабақ мақсатын қою; 3) әдіс пен форманы таңдау және өз рөлін ойластыру; 4) модельді сабақта тексеру; 5) талдап, түзетулер енгізу."],
+["Сабақ мақсаты «нәтиже тілінде» қалай тұжырымдалады? Мысал келтіріңіз.","Оқушы сабақ соңына қарай нені істей алатыны көрсетіледі. Мысалы: Present Simple көмегімен өз күнін сипаттай алады."]]],
+["Практика және қорытынды",[
+["Практикалық мысалда қандай пән сабағы қарастырылды?","Ағылшын тілі."],
+["Мысалдағы сабақтың мақсаты қандай?","Оқушыларды Present Simple көмегімен өз күнін сипаттауға үйрету."],
+["Мұғалім-лектор бұл сабақты қалай өткізер еді?","Ережені түсіндіріп, жаттығулар берер еді."],
+["Өзара әрекеттестікті модельдейтін мұғалім сабақты қалай өткізеді?","Ережені қысқаша енгізеді, содан кейін жұпта оқушылар бір-бірінен күн тәртібін сұрап, жауаптарын жазады, серіктесін сыныпқа таныстырады. Мұғалім ұйымдастырушы және көмекші."],
+["Қорытынды: өзара әрекеттестік, іс-әрекетті басқару және модельдеу бір-бірімен қалай байланысты?","Өзара әрекеттестік екі жақты процесс, оның сапасы мұғалім стиліне тәуелді. Басқару оны мақсат, уәждеме, бақылау арқылы бағыттайды. Модельдеу мұның бәрін алдын ала жоспарлап, сабақтан сабаққа жетілдіруге мүмкіндік береді."]]]
+];
+const RC=["Основные понятия","Стили взаимодействия","Управление деятельностью","Моделирование","Практика и вывод"];
+const R=[[
+["Что такое педагогическое взаимодействие?","Целенаправленный контакт учителя и ученика, в результате которого меняются обе стороны: у ученика появляются знания, умения и отношение к предмету, а учитель лучше понимает класс и корректирует работу."],
+["Что означает ключевое слово «взаимо» в слове «взаимодействие»?","Влияние идёт в обе стороны: учитель влияет на ученика, а ученик на учителя."],
+["Если учитель только говорит, а ученики только слушают, что это такое и почему это не взаимодействие?","Это передача информации: влияние одностороннее, обратной связи нет."],
+["Чем отличается подход, где ученик объект, от подхода, где он субъект?","Объект: учитель решает, что и как делать, ученик выполняет. Субъект: ученик высказывает мнение, выбирает способ работы, отвечает за результат."],
+["Какой подход лежит в основе личностно-ориентированного обучения и почему?","Второй, субъектный: ученик полноправный участник обучения, к этому стремится современная школа."]],[
+["Какие три классических стиля педагогического взаимодействия существуют?","Авторитарный, либеральный (попустительский) и демократический."],
+["Как действует учитель при авторитарном стиле и к чему это приводит?","Единолично принимает решения и жёстко контролирует; порядок есть, но инициатива учеников подавляется, интерес к предмету часто падает."],
+["Почему при либеральном стиле результаты работы получаются слабыми?","Учитель почти не направляет класс: ученикам свободно, но работа хаотична, результаты слабые."],
+["Какой стиль даёт лучшую мотивацию и самостоятельность и что делает учитель при этом стиле?","Демократический: учитель сотрудничает с учениками, объясняет цели, предлагает выбор, поддерживает инициативу."],
+["Почему опытный учитель меняет стиль в зависимости от ситуации? Приведите пример.","«Чистых» стилей почти не бывает; на контрольной нужна чёткость, на проектной работе нужна свобода."]],[
+["Из каких трёх взаимосвязанных частей состоит управление деятельностью учащихся?","Постановка цели и организация работы; поддержка мотивации; контроль и оценка результата."],
+["Какие методы подходят для первого знакомства с темой?","Объяснение и демонстрация."],
+["Какие методы лучше всего развивают мышление?","Проблемные вопросы и исследовательские задания."],
+["Какие методы учат сотрудничеству и какие поддерживают интерес?","Сотрудничеству: работа в парах и группах, дискуссии, проекты. Интерес: игровые методы."],
+["Почему управление деятельностью не «командование»? Какими средствами проверяют результат?","Это организация условий, в которых ученики сами хотят и умеют работать. Проверка: устные вопросы, тесты, самооценка, взаимооценивание."]],[
+["Что такое моделирование в педагогике?","Заранее продуманное проектирование того, как будет проходить обучение."],
+["Что учитель определяет, когда строит «макет» урока?","Цель, роли учителя и учеников, методы, последовательность действий и ожидаемый результат."],
+["Зачем нужно моделирование? Назовите минимум две причины.","Урок живой процесс, без плана он распадается; модель помогает предвидеть трудности, выбрать метод под класс, вовлечь даже молчаливых."],
+["Назовите шаги построения модели взаимодействия по порядку.","1) анализ класса; 2) формулировка цели; 3) выбор метода и формы, продумывание своей роли; 4) проверка модели на уроке; 5) анализ и коррективы."],
+["Как формулируется цель урока «на языке результата»? Приведите пример.","Указывается, что ученик сможет сделать к концу занятия. Например: описать свой день, используя Present Simple."]],[
+["Урок какого предмета рассматривался в практическом примере?","Английский язык."],
+["Какова цель урока в этом примере?","Научить учеников описывать свой день, используя Present Simple."],
+["Как провёл бы этот урок учитель-лектор?","Просто объяснил бы правило и дал упражнения."],
+["Как проводит урок учитель, который моделирует взаимодействие?","Коротко вводит правило, ученики в парах расспрашивают друг друга о распорядке дня и записывают ответы, затем представляют партнёра классу; учитель организатор и помощник."],
+["Как связаны между собой педагогическое взаимодействие, управление деятельностью и моделирование?","Взаимодействие двусторонний процесс, его качество зависит от стиля учителя; управление направляет его через цели, мотивацию и контроль; моделирование позволяет всё планировать заранее и улучшать от урока к уроку."]]];
+let teams=[[],[],[]],sc=[0,0,0],cur=null,left=25;
+function shuffle(){
+ const n=document.getElementById("names").value.split("\n").map(s=>s.trim()).filter(Boolean);
+ if(n.length<3){alert("Кемінде 3 қатысушы енгізіңіз");return}
+ for(let i=n.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[n[i],n[j]]=[n[j],n[i]]}
+ teams=[[],[],[]];n.forEach((x,i)=>teams[i%3].push(x));
+ const tn=[...T];
+ document.getElementById("res").innerHTML='<div class="teams" style="margin-top:10px">'+teams.map((t,i)=>`<div class="t"><b>${tn[i]}</b><span>${t.join(", ")}</span></div>`).join("")+"</div>";
+ document.getElementById("go").style.display="inline-block";
+}
+function start(){
+ let h=D.map((c,ci)=>`<div class="cat">${c[0]}<br>/ ${RC[ci]}</div>`).join("");
+ for(let r=0;r<5;r++)D.forEach((c,ci)=>h+=`<button class="tile" id="t${ci}_${r}" onclick="openQ(${ci},${r})">${(r+1)*100}</button>`);
+ document.getElementById("bd").innerHTML=h;score();
+}
+function score(){
+ document.getElementById("sb").innerHTML=T.map((t,i)=>`<div class="t"><b>${t}</b><div class="sc">${sc[i]}</div></div>`).join("");
+}
+function openQ(c,r){
+ cur=[c,r];const q=D[c][1][r];
+ const rq=R[c][r];mh.textContent=D[c][0]+" / "+RC[c]+" · "+(r+1)*100;mq.innerHTML=`<div>${q[0]}</div><div class="ru">${rq[0]}</div>`;ma.innerHTML=`<b>Жауап:</b> ${q[1]}<div class="ru"><b>Ответ:</b> ${rq[1]}</div>`;
+ ma.style.display="none";sh.style.display="inline-block";aw.style.display="none";
+ ab.innerHTML=T.map((t,i)=>`<button onclick="closeQ(${i})">✓ ${t}</button>`).join("");
+ m.classList.add("o");
+}
+function boom(){for(let k=0;k<30;k++){const s=document.createElement("span");s.className="cf";s.textContent=["🎉","⭐","✨","🎊"][k%4];s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*.4+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),2200)}}
+function show(){ma.style.display="block";sh.style.display="none";aw.style.display="block"}
+function closeQ(i){
+ const [c,r]=cur;if(i>=0){sc[i]+=(r+1)*100;boom()}
+ document.getElementById(`t${c}_${r}`).classList.add("u");
+ m.classList.remove("o");score();
+ if(--left==0){const mx=Math.max(...sc);setTimeout(()=>alert("Ойын аяқталды! Жеңімпаз: "+T.filter((t,i)=>sc[i]==mx).join(", ")),200)}
+}
+start();</script></body></html>
